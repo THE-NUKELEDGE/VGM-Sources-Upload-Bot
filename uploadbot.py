@@ -3,7 +3,6 @@ from discord.ext import commands
 import re
 import asyncio
 import json
-from datetime import datetime
 
 intents = discord.Intents.default()
 intents.messages = True
@@ -32,10 +31,6 @@ def can_kick_members(ctx):
     permissions = ctx.author.guild_permissions
     return permissions.kick_members
 
-# Function to check if the message is created after a specific date
-def is_after_date(message, date):
-    return message.created_at > date
-
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user}')
@@ -49,10 +44,6 @@ async def on_ready():
 @bot.event
 async def on_message(message):
     if message.author == bot.user:
-        return
-
-    # Check if the message is created after 5/25/2024
-    if not is_after_date(message, datetime(2024, 5, 25)):
         return
 
     # Check if the message is in a monitored channel
