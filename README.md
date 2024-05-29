@@ -7,3 +7,6 @@ Deletes messages from specified channel and reposts them elsewhere
 - !set_debug_channel = Debug channel.
 - !show_debug_info = Show debug info from saved JSON.
 - !print_debug_info = Show current debug info from memory rather than JSON.
+
+# Known Bugs
+- For some reason, the designated repost channel doesn't actually repost deleted messages from the monitored channel unless the command is rerun upon restart.
